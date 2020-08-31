@@ -3,11 +3,17 @@
 </template>
 
 <script>
+import { testApi } from "./api/test";
+
 export default {
-    mounted() {
-        // throw new Error('错了错了')
+    created() {
+        const data = {
+            name: 'zhi',
+            password: '123456'
+        }
+        testApi(data)
     },
-};
+}
 </script>
 
 <style>

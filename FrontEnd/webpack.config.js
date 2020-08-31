@@ -31,6 +31,12 @@ module.exports = {
     devServer: {
         contentBase: 'dist',
         port: '5233',
-        open: true
+        open: true,
+        proxy: {
+            "/api": "http://localhost:52333",
+            pathRewrite: {
+                '^/api': ''
+            }
+        }
     }
 };
