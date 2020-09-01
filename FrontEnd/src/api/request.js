@@ -1,7 +1,8 @@
 import axios from 'axios'
+export const baseURL = '/api'
 
 const request = axios.create({
-    baseURL: '/api'
+    baseURL
 })
 
 axios.interceptors.request.use(config => {

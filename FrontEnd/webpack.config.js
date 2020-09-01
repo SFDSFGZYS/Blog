@@ -6,7 +6,20 @@ const webpack = require('webpack');
 module.exports = {
     entry: path.resolve(__dirname, 'src/main.js'),
     output: {
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'js/[name]-[chunkhash].bundle.js'
+    },
+    devtool: 'inline-source-map',
+    devServer: {
+        contentBase: 'dist',
+        port: '5233',
+        open: true,
+        proxy: {
+            '/api': 'http://localhost:52333',
+            pathRewrite: {
+                '^/api': ''
+            }
+        }
     },
     module: {
         rules: [
@@ -41,16 +54,9 @@ module.exports = {
         })
         // new webpack.SourceMapDevToolPlugin()
     ],
-    devtool: 'inline-source-map',
-    devServer: {
-        contentBase: 'dist',
-        port: '5233',
-        open: true,
-        proxy: {
-            '/api': 'http://localhost:52333',
-            pathRewrite: {
-                '^/api': ''
-            }
+    resolve: {
+        alias: {
+            '@': path.resolve(__dirname, 'src/')
         }
     }
 };

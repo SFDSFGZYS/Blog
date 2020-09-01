@@ -1,9 +1,9 @@
 import request from './request'
 
-export function testApi(data) {
+export function login(data) {
     return request({
         method: 'post',
-        url: '/postSome',
+        url: '/login',
         data
     })
 }
