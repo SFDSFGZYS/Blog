@@ -16,7 +16,21 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: 'style-loader!css-loader'
+                loader: ['style-loader', 'css-loader']
+            },
+            {
+                test: /\.scss$/,
+                loader: ['style-loader', 'postcss-loader']
+            },
+            {
+                test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
+                }
             }
         ]
     },
@@ -24,7 +38,7 @@ module.exports = {
         new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'public/index.html')
-        }),
+        })
         // new webpack.SourceMapDevToolPlugin()
     ],
     devtool: 'inline-source-map',
@@ -33,7 +47,7 @@ module.exports = {
         port: '5233',
         open: true,
         proxy: {
-            "/api": "http://localhost:52333",
+            '/api': 'http://localhost:52333',
             pathRewrite: {
                 '^/api': ''
             }

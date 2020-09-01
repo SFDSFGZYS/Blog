@@ -1,5 +1,6 @@
 <template>
-    <div>hello world!111</div>
+    <!-- <router-view /> -->
+    <div>hello world !</div>
 </template>
 
 <script>
@@ -17,7 +18,4 @@ export default {
 </script>
 
 <style>
-body {
-    color: #f00;
-}
 </style>
