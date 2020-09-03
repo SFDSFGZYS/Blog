@@ -2,12 +2,14 @@ const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
     entry: path.resolve(__dirname, 'src/main.js'),
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'js/[name]-[chunkhash].bundle.js'
+        filename: 'js/[name]-[chunkhash].bundle.js',
+        chunkFilename: 'js/[name]-[chunkhash].bundle.js'
     },
     devtool: 'inline-source-map',
     devServer: {
@@ -51,8 +53,8 @@ module.exports = {
         new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'public/index.html')
-        })
-        // new webpack.SourceMapDevToolPlugin()
+        }),
+        new CleanWebpackPlugin() // 清理dist文件夹
     ],
     resolve: {
         alias: {

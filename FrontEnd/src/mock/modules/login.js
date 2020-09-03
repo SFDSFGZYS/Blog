@@ -10,7 +10,7 @@ export default {
             data: {
                 'id': '@id',
                 'userName': '@cname',
-                'token': '@string("lower", 32)'
+                'token': '@string("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", 32)'
             }
         }
     }
