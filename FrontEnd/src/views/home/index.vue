@@ -1,5 +1,5 @@
 <template>
-    <div class="home">hello {{ name }} !</div>
+    <div class="home">hello asdsadsadsa {{ name }} !</div>
 </template>
 <script>
 export default {
