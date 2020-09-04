@@ -1,20 +1,15 @@
 <template>
-    <router-view />
+    <div id="app">
+        <router-view />
+    </div>
 </template>
 
 <script>
-import { testApi } from "./api/test";
-import { login } from "./api/login";
+import { testApi } from './api/test'
+import { login } from './api/login'
 
 export default {
-    created() {
-        // login().then(res=>console.log(res))
-        // const data = {
-        //     name: 'zhi',
-        //     password: '123456'
-        // }
-        // testApi(data)
-    },
+    created() {}
 }
 </script>
 
